@@ -2,14 +2,14 @@ import json
 import string
 
 def db_load():
-    with open('D:\\vscode101\\python_progs\\interface\\interface6\\db.json', 'r', encoding='utf-8') as f:
+    with open('db.json', 'r', encoding='utf-8') as f:
         try:
             return json.load(f)
         except json.decoder.JSONDecodeError:
             return {}
 
 def db_dump(obj):
-    with open('D:\\vscode101\\python_progs\\interface\\interface6\\db.json', 'w', encoding='utf-8') as f:
+    with open('db.json', 'w', encoding='utf-8') as f:
         json.dump(obj, f)
 
 def login_check(log):
