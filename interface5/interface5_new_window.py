@@ -25,7 +25,7 @@ class OrderedWindow(QWidget):
         ##Кнопка
         self.btn_ok = QPushButton('OK', self)
         self.btn_ok.setFixedSize(80, 25)
-        self.btn_ok.move(10, self.window_height + 20)
+        self.btn_ok.move(150, 50)
         self.btn_ok.clicked.connect(self.close_window)
 
         self.setFixedSize(300, self.window_height + 70)
