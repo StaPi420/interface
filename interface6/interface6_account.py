@@ -2,11 +2,11 @@ from PyQt6.QtWidgets import QWidget, QLabel, QPushButton, QVBoxLayout
 from PyQt6.QtGui import QFont
 import funcs
 
-obj = funcs.db_load()
 
 class AccountWidget(QWidget):
     def __init__(self, login, main_window):
         super().__init__()
+        self.obj = funcs.db_load()
         self.setFixedSize(400, 300)
         self.setWindowTitle("Информация об аккаунте")
         self.main_window = main_window
@@ -27,11 +27,11 @@ class AccountWidget(QWidget):
         self.login_label.setFont(font_text)
 
         # Электронная почта
-        self.email_label = QLabel(f"Электронная почта: {obj[login].get('email', 'Не указана')}", self)
+        self.email_label = QLabel(f"Электронная почта: {self.obj[login].get('email', 'Не указана')}", self)
         self.email_label.setFont(font_text)
 
         # Номер телефона
-        self.phone_label = QLabel(f"Номер телефона: {obj[login].get('phone', 'Не указан')}", self)
+        self.phone_label = QLabel(f"Номер телефона: {self.obj[login].get('phone', 'Не указан')}", self)
         self.phone_label.setFont(font_text)
 
         # Кнопка возврата

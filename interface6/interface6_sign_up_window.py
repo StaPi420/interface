@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QWidget, QPushButton, QApplication, QLabel, QLineEdit
 from PyQt6.QtGui import QFont
-from interface6_sign_in import SignInWindow
+from interface6_account import AccountWidget
 import funcs
 import re
 import hashlib
@@ -17,6 +17,7 @@ class SignUpWindow(QWidget):
         self.font1 = QFont('Arial', 16)
         self.font1.setBold(True)
         self.name_label.setFont(self.font1)
+        self.login = None
 
         ##Шрифты
         self.font2 = QFont('Arial', 12)
@@ -231,7 +232,8 @@ class SignUpWindow(QWidget):
         obj.update({self.login_line.text(): {'password': hashlib.sha256(self.pass_line.text().encode()).hexdigest(),
         'email': self.email_line.text(), 'phone': self.phone_line.text()}})
         funcs.db_dump(obj)
-        self.new_window = SignInWindow()
+        self.login = self.login_line.text()
+        self.new_window = AccountWidget(self.login, self)
         self.new_window.show()
         
 

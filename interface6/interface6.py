@@ -1,8 +1,8 @@
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel
 from PyQt6.QtGui import QFont
 import sys
-from interface6_sign_up_window import SignUpWindow
-from interface6_sign_in import SignInWindow
+from interface6.interface6_sign_up_window import SignUpWindow
+from interface6.interface6_sign_in import SignInWindow
 
 class MainWindow(QMainWindow):
     def __init__(self):
